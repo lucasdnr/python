@@ -1,4 +1,4 @@
-version = "0.0.1"
+version = "0.0.2"
 print("*********************************")
 print("Welcome to Gessing Game v{}!".format(version))
 print("*********************************")
@@ -11,9 +11,16 @@ print("Your number is: {}".format(input_str))
 # SECRET_NUMBER bellow 
 input_number = int(input_str)
 
-if (secret_number == input_number):
+correct = secret_number == input_number
+greater = input_number > secret_number
+less = input_number < secret_number
+
+if (correct):
     print("You got it!")
 else:
-    print("You failed!")
+    if(greater):
+        print("You failed! Your number is greater than the secret number")
+    elif(less):
+        print("You failed! Your number is less than the secret number")
 
 print("End")
