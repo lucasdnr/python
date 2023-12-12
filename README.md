@@ -19,9 +19,9 @@ Explore a variety of projects that cover different domains within Python develop
    - Description: Is an interactive guessing game that puts your numerical intuition to the test.
    - Directory: `./Gessing Game`
 
-2. **Project 2: Another Project**
-   - Description: Another brief description of the project.
-   - Directory: `./project-2`
+2. **Project 2:**
+   - Description: 
+   - Directory: 
 
 
 Feel free to browse through the projects and choose the ones that align with your interests.
@@ -31,7 +31,7 @@ To get started with a project, follow these general steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/python-projects.git
+   git clone https://github.com/lucasdnr/python.git
 
 ## Contributing
 I welcome contributions from the community! If you have an idea for a new project, want to improve existing projects, or have suggestions for enhancements, please open a Pull request.
