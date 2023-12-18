@@ -30,7 +30,13 @@ def play():
             error += 1
 
         hanged = error == len(secret_word)
+        got_it = "_" not in found_letters
         print(found_letters)
+
+    if (got_it):
+        print("You win!")
+    else:
+        print("You loose!")
 
     print("End")
 
