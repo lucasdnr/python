@@ -7,7 +7,8 @@ secret_number = 42
 total_attempts = 3
 attempt = 1
 
-while (attempt <= total_attempts):
+for attempt in range(1, total_attempts + 1):
+    # while (attempt <= total_attempts):
     print("Attempt {} of {}".format(attempt, total_attempts))
     input_str = input("Enter your number: ")
     print("Your number is: {}".format(input_str))
@@ -28,6 +29,6 @@ while (attempt <= total_attempts):
         elif (less):
             print("You failed! Your number is less than the secret number")
 
-    attempt = attempt + 1
+    # attempt = attempt + 1
 
 print("End")
