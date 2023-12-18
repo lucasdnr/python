@@ -10,10 +10,13 @@ def play():
 
     while (not got_it and not hanged):
         guess = input("Choose a letter: ")
+        # removing spaces from input
+        guess = guess.strip()
 
         index = 0
+        # searching for character in the string
         for letter in secret_word:
-            if (guess == letter):
+            if (guess.upper() == letter.upper()):
                 print(f"I found the letter {letter} at position {index}")
             index = index + 1
 
