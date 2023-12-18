@@ -7,6 +7,7 @@ def play():
     secret_word = "banana"
     hanged = False
     got_it = False
+    found_letters = ["_", "_", "_", "_", "_", "_"]
 
     while (not got_it and not hanged):
         guess = input("Choose a letter: ")
@@ -17,8 +18,10 @@ def play():
         # searching for character in the string
         for letter in secret_word:
             if (guess.upper() == letter.upper()):
-                print(f"I found the letter {letter} at position {index}")
+                found_letters[index] = letter
+                # print(f"I found the letter {letter} at position {index}")
             index = index + 1
+        print(found_letters)
 
     print("End")
 
