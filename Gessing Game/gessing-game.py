@@ -5,9 +5,8 @@ print("*********************************")
 print("Welcome to Gessing Game v{}!".format(version))
 print("*********************************")
 
-secret_number = int(random.random(1, 100))
+secret_number = int(random.randrange(1, 100))
 total_attempts = 3
-attempt = 1
 
 for attempt in range(1, total_attempts + 1):
     # while (attempt <= total_attempts):
