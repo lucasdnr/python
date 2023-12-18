@@ -1,9 +1,11 @@
+import random
+
 version = "0.0.2"
 print("*********************************")
 print("Welcome to Gessing Game v{}!".format(version))
 print("*********************************")
 
-secret_number = 42
+secret_number = int(random.random() * 100)
 total_attempts = 3
 attempt = 1
 
