@@ -19,9 +19,9 @@ Explore a variety of projects that cover different domains within Python develop
    - Description: Is an interactive guessing game that puts your numerical intuition to the test.
    - Directory: `./Gessing Game`
 
-2. **Project 2:**
-   - Description: 
-   - Directory: 
+2. **Hangman Game:**
+   - Description: Experience the classic word-guessing fun with our Hangman game! Challenge your vocabulary as you try to guess the hidden word letter by letter.
+   - Directory: `./Hangman Game`
 
 
 Feel free to browse through the projects and choose the ones that align with your interests.
