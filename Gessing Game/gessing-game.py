@@ -8,7 +8,7 @@ total_attempts = 3
 attempt = 1
 
 while (attempt <= total_attempts):
-    print("Attempt", attempt, "of", total_attempts)
+    print("Attempt {} of {}".format(attempt, total_attempts))
     input_str = input("Enter your number: ")
     print("Your number is: {}".format(input_str))
     # input returns a STRING, we need convert it to integer and compare to
