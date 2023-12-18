@@ -6,7 +6,7 @@ print("Welcome to Gessing Game v{}!".format(version))
 print("*********************************")
 
 secret_number = random.randrange(1, 101)
-print(secret_number)
+# print(secret_number)
 points = 1000  # initial points of user
 
 # asking for the difficulty to user, the difficulty define the number of attempts
@@ -46,15 +46,21 @@ for attempt in range(1, total_attempts + 1):
         print(f"You got it! Total points {points}")
         break  # exit from loop
     else:
-        if (greater):
-            print("You failed! Your number is greater than the secret number")
-        elif (less):
-            print("You failed! Your number is less than the secret number")
-
         # for each failed attempt we will discount from initial points the number
         # of input_number
         # using Absolute number to convert negative numbers
         lost_points = abs(secret_number - input_number)
         points = points - lost_points
+
+        if (greater):
+            print("You failed! Your number is greater than the secret number")
+        elif (less):
+            print("You failed! Your number is less than the secret number")
+
+        # if the user is in the last attempt we show up the secret number and total points
+        if (attempt == total_attempts):
+            print(f"The secret number was {
+                  secret_number}. Total points {points}")
+
 
 print("End")
