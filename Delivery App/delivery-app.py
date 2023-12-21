@@ -24,6 +24,8 @@ def print_welcome_message():
 
 
 def print_menu():
+    ''' Displays the options available in the main menu '''
+
     print('1. New Restaurant')
     print('2. List Restaurants')
     print('3. Update Status of Restaurant')
@@ -31,6 +33,8 @@ def print_menu():
 
 
 def exit_app():
+    ''' Displays application completion message '''
+
     # clear console
     os.system('cls')
     # s.system('clear') for mac
@@ -38,6 +42,12 @@ def exit_app():
 
 
 def show_title(title):
+    ''' Displays a stylized subtitle on the screen
+    
+    Inputs:
+        - text: str - The subtitle text
+    '''
+
     # clear console
     os.system('cls')
     # print specific message for this function
@@ -48,17 +58,37 @@ def show_title(title):
 
 
 def back_to_menu():
+    ''' Requests a key to return to the main menu
+    
+    Outputs:
+        - Returns to main menu
+    '''
+
     input('\nPress any key to return to main menu ')
     main()
 
 
 def invalid_option():
+    ''' Displays invalid option message and returns to main menu
+    
+    Outputs:
+        - Returns to main menu
+    '''
+
     print('Invalid Option!\n')
     back_to_menu()
 
 
 def list_restaurants_handler():
+    ''' Lists the restaurants on the list
+    
+    Outputs:
+        - Displays the list of restaurants on the screen
+    '''
+
     show_title('List of Restaurants')
+
+    print(f'{'Name'.ljust(22)} | {'Category'.ljust(20)} | Status')
 
     for restaurant in restaurants:
         name = restaurant['name']
@@ -71,6 +101,17 @@ def list_restaurants_handler():
 
 
 def new_restaurant_handler():
+    ''' This function is responsible for registering a new restaurant
+    
+    Inputs:
+        - Name of the restaurant
+        - Category
+
+    Outputs:
+        - Add a new restaurant to the list of restaurants
+
+    '''
+
     show_title('New Restaurant')
 
     name = input('Enter the name of the restaurant you want to register: ')
@@ -83,6 +124,12 @@ def new_restaurant_handler():
 
 
 def update_status_restaurant_handler():
+    ''' Update the active/disabled state of a restaurant
+    
+    Outputs:
+        - Displays a message indicating the success of the operation
+    '''
+
     restaurant_found = False
 
     show_title('Update Status of Restaurant')
@@ -105,6 +152,12 @@ def update_status_restaurant_handler():
 
 
 def choose_option():
+    ''' Requests and executes the option chosen by the user
+    
+    Outputs:
+        - Executes the option chosen by the user
+    '''
+
     try:
         # select an option
         option_selected = int(input('Choose an option: '))
@@ -129,6 +182,8 @@ def choose_option():
 
 
 def main():
+    ''' Main function that starts the program '''
+
     # welcome message
     print_welcome_message()
 
