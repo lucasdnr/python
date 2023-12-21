@@ -1,7 +1,9 @@
 
 import os
 
-restaurants = ['Pizza', 'Sushi']
+
+restaurants = [{'name': 'Happy Pizza', 'category': 'Pizza', 'active': False},
+               {'name': 'Sushi Man', 'category': 'Sushi', 'active': True}]
 
 
 def print_welcome_message():
@@ -56,7 +58,10 @@ def list_restaurants_handler():
     show_title('List Restaurants\n')
 
     for restaurant in restaurants:
-        print(f'.{restaurant}')
+        name = restaurant['name']
+        category = restaurant['category']
+        active = restaurant['active']
+        print(f'. {name} | {category} | {active}')
 
     back_to_menu()
 
@@ -65,7 +70,9 @@ def new_restaurant_handler():
     show_title('New Restaurant\n')
 
     name = input('Enter the name of the restaurant you want to register: ')
-    restaurants.append(name)
+    category = input(f'Enter the category name of the {name}: ')
+    data = {'name': name, 'category': category, 'active': False}
+    restaurants.append(data)
     print(f'The restaurant {name} was successfully created!')
 
     back_to_menu()
