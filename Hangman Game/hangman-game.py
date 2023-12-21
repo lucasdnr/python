@@ -8,7 +8,7 @@ def play():
     hanged = False
     got_it = False
     error = 0
-    found_letters = ["_", "_", "_", "_", "_", "_"]
+    found_letters = ["_" for letter in secret_word]
 
     # first print to show to user how many letters the secret_word have
     print(found_letters)
@@ -29,7 +29,7 @@ def play():
         else:
             error += 1
             print("You missed! You have {} attempts more.".format(
-                len(found_letters)-error))
+                len(secret_word)-error))
 
         hanged = error == len(secret_word)
         got_it = "_" not in found_letters
