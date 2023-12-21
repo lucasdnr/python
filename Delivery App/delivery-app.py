@@ -27,7 +27,7 @@ def print_menu():
     print('1. New Restaurant')
     print('2. List Restaurants')
     print('3. Update Status of Restaurant')
-    print('4. Exit')
+    print('4. Exit\n')
 
 
 def exit_app():
@@ -41,7 +41,10 @@ def show_title(title):
     # clear console
     os.system('cls')
     # print specific message for this function
+    line = '*' * (len(title) + 4)
+    print(line)
     print(title)
+    print(f'{line}\n')
 
 
 def back_to_menu():
@@ -55,20 +58,20 @@ def invalid_option():
 
 
 def list_restaurants_handler():
-    show_title('List Restaurants\n')
+    show_title('List of Restaurants')
 
     for restaurant in restaurants:
         name = restaurant['name']
         category = restaurant['category']
         active = 'Activated' if restaurant['active'] == True else 'Deactivated'
 
-        print(f'. {name} | {category} | {active}')
+        print(f'- {name.ljust(20)} | {category.ljust(20)} | {active}')
 
     back_to_menu()
 
 
 def new_restaurant_handler():
-    show_title('New Restaurant\n')
+    show_title('New Restaurant')
 
     name = input('Enter the name of the restaurant you want to register: ')
     category = input(f'Enter the category name of the {name}: ')
@@ -82,7 +85,7 @@ def new_restaurant_handler():
 def update_status_restaurant_handler():
     restaurant_found = False
 
-    show_title('Update Status of Restaurant\n')
+    show_title('Update Status of Restaurant')
 
     name = input(
         'Enter the name of the restaurant you want to change the status: ')
