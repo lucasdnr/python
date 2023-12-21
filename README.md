@@ -23,6 +23,10 @@ Explore a variety of projects that cover different domains within Python develop
    - Description: Experience the classic word-guessing fun with our Hangman game! Challenge your vocabulary as you try to guess the hidden word letter by letter.
    - Directory: `./Hangman Game`
 
+3. **Restaurant Management App:**
+   - Description: This Python program is a simple restaurant management system that allows users to perform various operations related to restaurant management.
+   - Directory: `./Restaurant Management`
+
 
 Feel free to browse through the projects and choose the ones that align with your interests.
 

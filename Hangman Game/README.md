@@ -5,7 +5,7 @@ This is a simple implementation of the classic Hangman game in Python. The game 
 ## How to Play
 
 1. Run the program using a Python interpreter.
-   ```bash
+   ```
    python hangman-game.py
    ```
 
