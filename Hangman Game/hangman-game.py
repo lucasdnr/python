@@ -19,18 +19,12 @@ def play():
     print(found_letters)
 
     while (not got_it and not hanged):
-        guess = input("Choose a letter: ")
+        guess = ask_input()
         # removing spaces from input
         guess = guess.strip().upper()
 
         if (guess in secret_word):
-            index = 0
-            # searching for character in the string
-            for letter in secret_word:
-                if (guess == letter):
-                    found_letters[index] = letter
-                    # print(f"I found the letter {letter} at position {index}")
-                index += 1
+            mark_correct_guess(guess, found_letters, secret_word)
         else:
             error += 1
             print("You missed! You have {} attempts more.".format(
@@ -41,11 +35,9 @@ def play():
         print(found_letters)
 
     if (got_it):
-        print("You win!")
+        print_win_message()
     else:
-        print(f"You lose! The word is {secret_word}")
-
-    print("End")
+        print_lose_message(secret_word)
 
 
 def print_welcome_message():
@@ -77,6 +69,56 @@ def load_secret_word():
 def load_found_letters(secret_word):
     return ["_" for letter in secret_word]
 
+
+def ask_input():
+    guess = input("Choose a letter: ")
+    guess = guess.strip().upper()
+
+    return guess
+
+
+def mark_correct_guess(guess, found_letters, secret_word):
+    index = 0
+    # searching for character in the string
+    for letter in secret_word:
+        if (guess == letter):
+            found_letters[index] = letter
+            # print(f"I found the letter {letter} at position {index}")
+        index += 1
+
+
+def print_win_message():
+    print("You win!")
+    print("       ___________      ")
+    print("      '._==_==_=_.'     ")
+    print("      .-\\:      /-.    ")
+    print("     | (|:.     |) |    ")
+    print("      '-|:.     |-'     ")
+    print("        \\::.    /      ")
+    print("         '::. .'        ")
+    print("           ) (          ")
+    print("         _.' '._        ")
+    print("        '-------'       ")
+
+
+def print_lose_message(secret_word):
+    print(f"You lose! The word is {secret_word}")
+    print("    _______________         ")
+    print("   /               \\       ")
+    print("  /                 \\      ")
+    print("//                   \\/\\  ")
+    print("\\|   XXXX     XXXX   | /   ")
+    print(" |   XXXX     XXXX   |/     ")
+    print(" |   XXX       XXX   |      ")
+    print(" |                   |      ")
+    print(" \\__      XXX      __/     ")
+    print("   |\\     XXX     /|       ")
+    print("   | |           | |        ")
+    print("   | I I I I I I I |        ")
+    print("   |  I I I I I I  |        ")
+    print("   \\_             _/       ")
+    print("     \\_         _/         ")
+    print("       \\_______/           ")
 
 # verifying if python is running or is running as a module
 # we can create a hub of games so we can call this game as a module
