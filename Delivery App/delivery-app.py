@@ -26,7 +26,7 @@ def print_welcome_message():
 def print_menu():
     print('1. New Restaurant')
     print('2. List Restaurants')
-    print('3. Activate Restaurant')
+    print('3. Update Status of Restaurant')
     print('4. Exit')
 
 
@@ -60,7 +60,8 @@ def list_restaurants_handler():
     for restaurant in restaurants:
         name = restaurant['name']
         category = restaurant['category']
-        active = restaurant['active']
+        active = 'Activated' if restaurant['active'] == True else 'Deactivated'
+
         print(f'. {name} | {category} | {active}')
 
     back_to_menu()
@@ -78,6 +79,28 @@ def new_restaurant_handler():
     back_to_menu()
 
 
+def update_status_restaurant_handler():
+    restaurant_found = False
+
+    show_title('Update Status of Restaurant\n')
+
+    name = input(
+        'Enter the name of the restaurant you want to change the status: ')
+
+    for restaurant in restaurants:
+        if name.upper() == restaurant['name'].upper():
+            restaurant_found = True
+            restaurant['active'] = not restaurant['active']
+            message = f'Restaurant {name} has been successfully activated' if restaurant['active'] else f'Restaurant {
+                name} has been successfully deactivated'
+            print(message)
+
+    if not restaurant_found:
+        print('The restaurant was not found')
+
+    back_to_menu()
+
+
 def choose_option():
     try:
         # select an option
@@ -91,7 +114,7 @@ def choose_option():
                 list_restaurants_handler()
             case 3:
                 # activate a restaurant
-                print('Activate Restaurant')
+                update_status_restaurant_handler()
             case 4:
                 # exit app
                 exit_app()
