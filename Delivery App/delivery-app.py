@@ -1,7 +1,8 @@
 
 import os
 
-restaurants = []
+restaurants = ['Pizza', 'Sushi']
+
 
 def print_welcome_message():
     # clear console
@@ -43,7 +44,16 @@ def invalid_option():
 
 
 def list_restaurant_handler():
-    pass
+    # clear console
+    os.system('cls')
+    # print specific message for this function
+    print('List Restaurants\n')
+
+    for restaurant in restaurants:
+        print(restaurant)
+
+    input('\nPress any key to return to main menu')
+    main()
 
 
 def new_restaurant_handler():
@@ -53,9 +63,10 @@ def new_restaurant_handler():
     print('New Restaurant\n')
     name = input('Enter the name of the restaurant you want to register: ')
     restaurants.append(name)
-    print(f'The restaurant {name} was successfully created!\n')
-    input('Press any key to return to main menu')
+    print(f'The restaurant {name} was successfully created!')
+    input('\nPress any key to return to main menu')
     main()
+
 
 def choose_option():
     try:
