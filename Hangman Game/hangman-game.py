@@ -28,6 +28,8 @@ def play():
                 index += 1
         else:
             error += 1
+            print("You missed! You have {} attempts more.".format(
+                len(found_letters)-error))
 
         hanged = error == len(secret_word)
         got_it = "_" not in found_letters
@@ -36,7 +38,7 @@ def play():
     if (got_it):
         print("You win!")
     else:
-        print("You loose!")
+        print("You lose!")
 
     print("End")
 
