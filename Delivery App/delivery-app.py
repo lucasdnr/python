@@ -35,37 +35,40 @@ def exit_app():
     print('Exit')
 
 
-def invalid_option():
-    print('Invalid Option!\n')
-    input('Press any key to return to main menu')
-    # clear console
-    os.system('cls')
-    main()
-
-
-def list_restaurant_handler():
+def show_title(title):
     # clear console
     os.system('cls')
     # print specific message for this function
-    print('List Restaurants\n')
+    print(title)
+
+
+def back_to_menu():
+    input('\nPress any key to return to main menu ')
+    main()
+
+
+def invalid_option():
+    print('Invalid Option!\n')
+    back_to_menu()
+
+
+def list_restaurants_handler():
+    show_title('List Restaurants\n')
 
     for restaurant in restaurants:
-        print(restaurant)
+        print(f'.{restaurant}')
 
-    input('\nPress any key to return to main menu')
-    main()
+    back_to_menu()
 
 
 def new_restaurant_handler():
-    # clear console
-    os.system('cls')
-    # print specific message for this function
-    print('New Restaurant\n')
+    show_title('New Restaurant\n')
+
     name = input('Enter the name of the restaurant you want to register: ')
     restaurants.append(name)
     print(f'The restaurant {name} was successfully created!')
-    input('\nPress any key to return to main menu')
-    main()
+
+    back_to_menu()
 
 
 def choose_option():
@@ -78,7 +81,7 @@ def choose_option():
                 new_restaurant_handler()
             case 2:
                 # return a list of restaurants
-                list_restaurant_handler()
+                list_restaurants_handler()
             case 3:
                 # activate a restaurant
                 print('Activate Restaurant')
