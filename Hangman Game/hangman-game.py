@@ -2,28 +2,18 @@ import random
 
 
 def play():
-    version = "0.0.1"
-    print("*********************************")
-    print(f"Welcome to Hangman Game v{version}!")
-    print("*********************************")
+    # print welcome message
+    print_welcome_message()
 
-    # file handler - open words file
-    file = open("words.txt", "r")
-    words = []
-    for line in file:
-        line = line.strip()
-        words.append(line)
-    file.close()
+    # get secret word from TXT file
+    secret_word = load_secret_word()
+    # load the structure that will show the letters list
+    found_letters = load_found_letters(secret_word)
 
-    # get a random word
-    word_index = random.randrange(0, len(words))
-
-    # set variables
-    secret_word = words[word_index].upper()
+    # init variables
     hanged = False
     got_it = False
     error = 0
-    found_letters = ["_" for letter in secret_word]
 
     # first print to show to user how many letters the secret_word have
     print(found_letters)
@@ -56,6 +46,36 @@ def play():
         print(f"You lose! The word is {secret_word}")
 
     print("End")
+
+
+def print_welcome_message():
+    version = "0.0.1"
+    print("*********************************")
+    print(f"Welcome to Hangman Game v{version}!")
+    print("*********************************")
+
+
+def load_secret_word():
+    # file handler - open words file
+    # file = open("words.txt", "r")
+    # file.close()
+    words = []
+    with open("words.txt") as file:
+        for line in file:
+            line = line.strip()
+            words.append(line)
+
+    # get a random word
+    word_index = random.randrange(0, len(words))
+
+    # set variables
+    secret_word = words[word_index].upper()
+
+    return secret_word
+
+
+def load_found_letters(secret_word):
+    return ["_" for letter in secret_word]
 
 
 # verifying if python is running or is running as a module
