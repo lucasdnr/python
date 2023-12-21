@@ -1,10 +1,25 @@
+import random
+
+
 def play():
     version = "0.0.1"
     print("*********************************")
-    print("Welcome to Hangman Game v{}!".format(version))
+    print(f"Welcome to Hangman Game v{version}!")
     print("*********************************")
 
-    secret_word = "banana".upper()
+    # file handler - open words file
+    file = open("words.txt", "r")
+    words = []
+    for line in file:
+        line = line.strip()
+        words.append(line)
+    file.close()
+
+    # get a random word
+    word_index = random.randrange(0, len(words))
+
+    # set variables
+    secret_word = words[word_index].upper()
     hanged = False
     got_it = False
     error = 0
@@ -38,7 +53,7 @@ def play():
     if (got_it):
         print("You win!")
     else:
-        print("You lose!")
+        print(f"You lose! The word is {secret_word}")
 
     print("End")
 

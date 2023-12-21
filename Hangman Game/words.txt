@@ -1,0 +1,11 @@
+banana
+apple
+grape
+car
+table
+computer
+world
+open
+happy
+book
+python
