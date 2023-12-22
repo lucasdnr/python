@@ -2,7 +2,6 @@ from models.restaurants import Restaurant
 
 restaurant_sushi = Restaurant('Yoho', 'Sushi')
 restaurant_sushi.update_status_restaurant_handler()
-restaurant_sushi.assign_rating_handler('Josh', 10)
 restaurant_sushi.assign_rating_handler('Mary', 2)
 restaurant_sushi.assign_rating_handler('Deric', 4)
 restaurant_pizza = Restaurant('Tony', 'Pizza')
