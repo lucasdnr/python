@@ -43,11 +43,12 @@ class Restaurant:
             - Displays the list of restaurants on the screen
         '''
 
-        print(f'{'Name'.ljust(22)} | {'Category'.ljust(20)} | Status')
+        print(f'{'Name'.ljust(22)} | {'Category'.ljust(20)} | {
+              'Rating'.ljust(20)} | Status')
 
         for restaurant in cls.restaurants:
             print(f'- {restaurant._name.ljust(20)} | {
-                  restaurant._category.ljust(20)} | {restaurant.active}')
+                  restaurant._category.ljust(20)} | {str(restaurant.mean_ratings).ljust(20)} | {restaurant.active}')
 
     # this method is for objects
     def update_status_restaurant_handler(self):
@@ -56,6 +57,8 @@ class Restaurant:
         self._active = not self._active
 
     def assign_rating_handler(self, customer, rate):
+        ''' Put a item of rating into the rating list of restaurant'''
+
         rating = Rating(customer, rate)
         self._rating.append(rating)
 
