@@ -1,27 +1,48 @@
 class Restaurant:
     restaurants = []
 
+    @property
+    def active(self):
+        return 'Activated' if self._active else 'Deactivated'
+
     # The __str__ method is a special method that takes the object and defines that
     # if we need to show that object in text format
+
     def __str__(self):
-        return f'{self.name} | {self.category}'
+        return f'{self._name} | {self._category}'
 
     # constructor
     def __init__(self, name, category):
-        self.name = name
-        self.category = category
-        self.active = False
+        self._name = name.title()
+        self._category = category.upper()
+        self._active = False
         Restaurant.restaurants.append(self)
 
-    def list_restaurants():
+    # best practice uses classmethod for method for the class
+    # cls is a convention
+    @classmethod
+    def list_restaurants(cls):
+        ''' Lists the restaurants on the list
+
+        Outputs:
+            - Displays the list of restaurants on the screen
+        '''
+
         print(f'{'Name'.ljust(22)} | {'Category'.ljust(20)} | Status')
 
-        for restaurant in Restaurant.restaurants:
-            print(f'- {restaurant.name.ljust(20)} | {
-                  restaurant.category.ljust(20)} | {restaurant.active}')
+        for restaurant in cls.restaurants:
+            print(f'- {restaurant._name.ljust(20)} | {
+                  restaurant._category.ljust(20)} | {restaurant.active}')
+
+    # this method is for objects
+    def update_status_restaurant_handler(self):
+        ''' Update the active/disabled state of a restaurant '''
+
+        self._active = not self._active
 
 
 restaurant_sushi = Restaurant('Yoho', 'Sushi')
+restaurant_sushi.update_status_restaurant_handler()
 restaurant_pizza = Restaurant('Tony', 'Pizza')
 Restaurant.list_restaurants()
 
