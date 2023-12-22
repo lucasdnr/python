@@ -27,9 +27,9 @@ Explore a variety of projects that cover different domains within Python develop
    - Description: This Python program is a simple restaurant management system that allows users to perform various operations related to restaurant management.
    - Directory: `./Restaurant Management`
 
-4. **OO Restaurant Management App:**
+4. **Restaurant Rating System:**
    - Description: This Python program implements a simple restaurant rating system using object orientation
-   - Directory: `./OO Restaurant Management`
+   - Directory: `./Restaurant Rating System`
 
 
 Feel free to browse through the projects and choose the ones that align with your interests.
