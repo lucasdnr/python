@@ -1,3 +1,6 @@
+from models.rating import Rating
+
+
 class Restaurant:
     restaurants = []
 
@@ -16,6 +19,7 @@ class Restaurant:
         self._name = name.title()
         self._category = category.upper()
         self._active = False
+        self._rating = []
         Restaurant.restaurants.append(self)
 
     # best practice uses classmethod for method for the class
@@ -40,11 +44,10 @@ class Restaurant:
 
         self._active = not self._active
 
+    def assign_rating_handler(self, customer, rate):
+        rating = Rating(customer, rate)
+        self._rating.append(rating)
 
-restaurant_sushi = Restaurant('Yoho', 'Sushi')
-restaurant_sushi.update_status_restaurant_handler()
-restaurant_pizza = Restaurant('Tony', 'Pizza')
-Restaurant.list_restaurants()
 
 # print(restaurant_sushi)
 # list the attributes, methods of an object
