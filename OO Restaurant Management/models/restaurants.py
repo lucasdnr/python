@@ -4,10 +4,6 @@ from models.rating import Rating
 class Restaurant:
     restaurants = []
 
-    @property
-    def active(self):
-        return 'Activated' if self._active else 'Deactivated'
-
     # The __str__ method is a special method that takes the object and defines that
     # if we need to show that object in text format
 
@@ -21,6 +17,21 @@ class Restaurant:
         self._active = False
         self._rating = []
         Restaurant.restaurants.append(self)
+
+    @property
+    def active(self):
+        return 'Activated' if self._active else 'Deactivated'
+
+    @property
+    def mean_ratings(self):
+        if not self._rating:
+            return 0
+
+        sum_rating = sum(rating._rate for rating in self._rating)
+        total_rating = len(self._rating)
+        mean = round(sum_rating / total_rating, 1)
+
+        return mean
 
     # best practice uses classmethod for method for the class
     # cls is a convention
