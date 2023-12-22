@@ -2,16 +2,28 @@ from models.rating import Rating
 
 
 class Restaurant:
+    '''Represents a restaurant and its characteristics.'''
+
     restaurants = []
 
     # The __str__ method is a special method that takes the object and defines that
     # if we need to show that object in text format
 
     def __str__(self):
+        '''Returns a string representation of the restaurant.'''
+
         return f'{self._name} | {self._category}'
 
     # constructor
     def __init__(self, name, category):
+        '''
+        Initializes a Restaurant instance.
+
+        Parameters:
+            - name (str): The name of the restaurant.
+            - category (str): The category of the restaurant.
+        '''
+
         self._name = name.title()
         self._category = category.upper()
         self._active = False
@@ -20,12 +32,16 @@ class Restaurant:
 
     @property
     def active(self):
-        return 'Activated' if self._active else 'Deactivated'
+        '''Returns a symbol indicating the restaurant's activity status.'''
+
+        return '⌧' if self._active else '☐'
 
     @property
     def mean_ratings(self):
+        '''Calculates and returns the mean rating of the restaurant.'''
+
         if not self._rating:
-            return 0
+            return '-'
 
         sum_rating = sum(rating._rate for rating in self._rating)
         total_rating = len(self._rating)
@@ -57,10 +73,17 @@ class Restaurant:
         self._active = not self._active
 
     def assign_rating_handler(self, customer, rate):
-        ''' Put a item of rating into the rating list of restaurant'''
+        '''
+        Register a review rate for the restaurant.
 
-        rating = Rating(customer, rate)
-        self._rating.append(rating)
+        Parameters:
+            - customer (str): The name of the customer who made the review.
+            - rate (float): The rating given to the restaurant (between 1 and 5).
+        '''
+
+        if 0 < rate <= 5:
+            rating = Rating(customer, rate)
+            self._rating.append(rating)
 
 
 # print(restaurant_sushi)
