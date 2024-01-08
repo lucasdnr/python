@@ -43,6 +43,6 @@ def decode(message_file):
 # verifying if python is running or is running as a module
 if (__name__ == "__main__"):
     # Replace with the actual file name
-    message_file = "./Decoding Message/example.txt"
+    message_file = "example.txt"
     decoded_message = decode(message_file)
     print(decoded_message)
