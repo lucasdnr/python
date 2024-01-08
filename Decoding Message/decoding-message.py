@@ -25,11 +25,8 @@ def decode(message_file):
     # Create a list of numbers in ascending order
     nums = sorted(list(num_word_dict.keys()))
 
-    # Sort the numbers to create the staircase
-    sorted_numbers = sorted(nums)
-
     # Create the staircase
-    staircase = create_staircase(sorted_numbers)
+    staircase = create_staircase(nums)
 
     if not staircase:
         return "Invalid input file format"
