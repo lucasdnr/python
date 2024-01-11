@@ -38,6 +38,7 @@ class Restaurant:
 
         return '⌧' if self._active else '☐'
 
+    # decorator
     @property
     def mean_ratings(self):
         '''Calculates and returns the mean rating of the restaurant.'''
@@ -51,6 +52,7 @@ class Restaurant:
 
         return mean
 
+    # decorator
     @property
     def show_menu(self):
         print(f'{self._name}\'s Menu \n')
