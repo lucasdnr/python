@@ -51,6 +51,18 @@ class Restaurant:
 
         return mean
 
+    @property
+    def show_menu(self):
+        print(f'{self._name}\'s Menu \n')
+        for i, item in enumerate(self._menu, start=1):
+            if hasattr(item, 'description'):
+                message = f'{i}. Name: {
+                    item._name} | Price: ${item._price} | Description: {item.description}'
+            else:
+                message = f'{i}. Name: {
+                    item._name} | Price: ${item._price} | Size: {item.size}'
+            print(message)
+
     # best practice uses classmethod for method for the class
     # cls is a convention
     @classmethod
