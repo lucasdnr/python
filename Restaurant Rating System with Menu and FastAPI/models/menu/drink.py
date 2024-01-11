@@ -10,3 +10,7 @@ class Drink(ItemMenu):
     def __init__(self, name, price, size):
         super().__init__(name, price)
         self.size = size
+
+    def apply_discount(self):
+        # discount 5%
+        self._price -= self._price * 0.05

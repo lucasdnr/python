@@ -7,5 +7,5 @@ class ItemMenu(ABC):
         self._price = price
 
     @abstractmethod
-    def apply_discount(self, amount):
+    def apply_discount(self):
         pass
