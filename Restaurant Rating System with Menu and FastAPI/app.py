@@ -1,6 +1,7 @@
 from models.restaurants import Restaurant
 from models.menu.drink import Drink
 from models.menu.menu_dish import MenuDish
+from models.menu.dessert import Dessert
 
 restaurant_sushi = Restaurant('Yoho', 'Sushi')
 restaurant_sushi.update_status_restaurant_handler()
@@ -10,9 +11,12 @@ restaurant_sushi.assign_rating_handler('Deric', 4)
 drink_juice = Drink('Orange Juice', 5.0, 'Large')
 drink_juice.apply_discount()
 dish_poutine = MenuDish('Poutine', 2.0, 'The Best Poutine of Country')
+cake = Dessert('Cake', 2.99, 'Chocolate Cake', ' ', 'small')
+cake.apply_discount()
 
 restaurant_sushi.add_item_menu(drink_juice)
 restaurant_sushi.add_item_menu(dish_poutine)
+restaurant_sushi.add_item_menu(cake)
 
 restaurant_pizza = Restaurant('Tony', 'Pizza')
 
