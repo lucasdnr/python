@@ -28,6 +28,7 @@ class Restaurant:
         self._category = category.upper()
         self._active = False
         self._rating = []
+        self._menu = []
         Restaurant.restaurants.append(self)
 
     @property
@@ -66,7 +67,7 @@ class Restaurant:
             print(f'- {restaurant._name.ljust(20)} | {
                   restaurant._category.ljust(20)} | {str(restaurant.mean_ratings).ljust(20)} | {restaurant.active}')
 
-    # this method is for objects
+    # those method is for objects
     def update_status_restaurant_handler(self):
         ''' Update the active/disabled state of a restaurant '''
 
@@ -85,6 +86,13 @@ class Restaurant:
             rating = Rating(customer, rate)
             self._rating.append(rating)
 
+    def add_drink_to_menu(self, drink):
+        self._menu.append(drink)
+
+    def add_dish_to_menu(self, dish):
+        self._menu.append(dish)
+
+# código omitido
 
 # print(restaurant_sushi)
 # list the attributes, methods of an object

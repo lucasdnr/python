@@ -9,6 +9,8 @@ restaurant_sushi.assign_rating_handler('Deric', 4)
 
 drink_juice = Drink('Orange Juice', 5.0, 'Large')
 dish_poutine = MenuDish('Poutine', 2.0, 'The Best Poutine of Country')
+restaurant_sushi.add_drink_to_menu(drink_juice)
+restaurant_sushi.add_dish_to_menu(dish_poutine)
 
 restaurant_pizza = Restaurant('Tony', 'Pizza')
 
