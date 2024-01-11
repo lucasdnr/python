@@ -1,4 +1,5 @@
 from models.rating import Rating
+from models.menu.item_menu import ItemMenu
 
 
 class Restaurant:
@@ -86,11 +87,15 @@ class Restaurant:
             rating = Rating(customer, rate)
             self._rating.append(rating)
 
-    def add_drink_to_menu(self, drink):
-        self._menu.append(drink)
+    # def add_drink_to_menu(self, drink):
+    #     self._menu.append(drink)
 
-    def add_dish_to_menu(self, dish):
-        self._menu.append(dish)
+    # def add_dish_to_menu(self, dish):
+    #     self._menu.append(dish)
+
+    def add_item_menu(self, item):
+        if isinstance(item, ItemMenu):
+            self._menu.append(item)
 
 # código omitido
 
