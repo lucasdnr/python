@@ -60,15 +60,24 @@ def get_restaurants(restaurant: str = Query(None)):
         if restaurant is None:
             json_files = [f for f in os.listdir(
                 data_folder) if f.endswith(".json")]
+
+            data_restaurants = []
             for file in json_files:
                 file_path = os.path.join(data_folder, file)
                 with open(file_path, 'r') as f:
                     json_data = json.load(f)
-                    return {'Restaurant': restaurant, 'Menu': json_data}
+                    name, _ = os.path.splitext(os.path.basename(file))
+                    data_restaurants.append({
+                        'Restaurant': name,
+                        'Menu': json_data
+                    })
+            # return JSONResponse(content=data_restaurants)
+            return data_restaurants
 
         else:
-             # If file name is provided, read only that specific JSON file
-            file_path = os.path.join(data_folder, restaurant)
+            # If file name is provided, read only that specific JSON file
+            file_name = restaurant + '.json'
+            file_path = os.path.join(data_folder, file_name)
             if os.path.exists(file_path):
                 with open(file_path, 'r') as f:
                     json_data = json.load(f)
