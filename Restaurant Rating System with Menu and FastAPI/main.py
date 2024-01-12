@@ -6,12 +6,18 @@ app = FastAPI()
 
 @app.get('/api/hello')
 def hello_world():
+    '''
+    Basic Hello World for testing route
+    '''
     return {'Hello': 'World'}
 
 
 # ie http://127.0.0.1:8000/api/restaurants/?restaurant=KFC
 @app.get('/api/restaurants/')
 def get_restaurants(restaurant: str = Query(None)):
+    '''
+    Get the menu of restaurants
+    '''
     url = 'https://guilhermeonrails.github.io/api-restaurantes/restaurantes.json'
     response = requests.get(url)
 
