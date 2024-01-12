@@ -72,11 +72,8 @@ def get_restaurants(restaurant: str = Query(None)):
             file_path = os.path.join(data_folder, restaurant)
             if os.path.exists(file_path):
                 with open(file_path, 'r') as f:
-                    try:
-                        json_data = json.load(f)
-                        data[file_name] = json_data
-                    except json.JSONDecodeError as e:
-                        print(f"Error decoding JSON in file '{file_name}': {e}")
+                    json_data = json.load(f)
+                    return {'Restaurant': restaurant, 'Menu': json_data}
             else:
                 print(f"File '{restaurant}' not found.")
                 return {f'Error: {restaurant} not found'}
