@@ -18,10 +18,10 @@ if response.status_code == 200:
             'description': item['description']
         })
 
+    for name, data in data_restaurants.items():
+        file_name = f'./data/{name}.json'
+        with open(file_name, 'w') as file:
+            json.dump(data, file, indent=4)
+
 else:
     print(f'Error {response.status_code}')
-
-for name, data in data_restaurants.items():
-    file_name = f'./data/{name}.json'
-    with open(file_name, 'w') as file:
-        json.dump(data, file, indent=4)
