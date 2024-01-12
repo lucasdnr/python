@@ -31,6 +31,10 @@ Explore a variety of projects that cover different domains within Python develop
    - Description: This Python program implements a simple restaurant rating system using object orientation
    - Directory: `./Restaurant Rating System`
 
+5. **FastAPI - Restaurant Menu System:**
+   - Description: This Python program is an extension of `Restaurant Rating System` where were implemented new functions to create items to restaurant menu and apply discount to the items. We also have a small FastAPI implementation to return the menu of restaurants reading JSON files.
+   - Directory: `./FastAPI - Restaurant Menu System`
+
 
 Feel free to browse through the projects and choose the ones that align with your interests.
 
