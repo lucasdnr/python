@@ -66,12 +66,12 @@ def get_restaurants(restaurant: str = Query(None)):
                 file_path = os.path.join(data_folder, file)
                 with open(file_path, 'r') as f:
                     json_data = json.load(f)
+                    # get the file name, ignoring extension
                     name, _ = os.path.splitext(os.path.basename(file))
                     data_restaurants.append({
                         'Restaurant': name,
                         'Menu': json_data
                     })
-            # return JSONResponse(content=data_restaurants)
             return data_restaurants
 
         else:
