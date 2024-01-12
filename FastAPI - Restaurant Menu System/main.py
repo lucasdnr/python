@@ -60,7 +60,6 @@ def get_restaurants(restaurant: str = Query(None)):
         if restaurant is None:
             json_files = [f for f in os.listdir(
                 data_folder) if f.endswith(".json")]
-            data = {}
             for file in json_files:
                 file_path = os.path.join(data_folder, file)
                 with open(file_path, 'r') as f:
