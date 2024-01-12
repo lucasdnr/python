@@ -9,18 +9,18 @@ def hello_world():
     return {'Hello': 'World'}
 
 
+# ie http://127.0.0.1:8000/api/restaurants/?restaurant=KFC
 @app.get('/api/restaurants/')
 def get_restaurants(restaurant: str = Query(None)):
     url = 'https://guilhermeonrails.github.io/api-restaurantes/restaurantes.json'
     response = requests.get(url)
-    print(response)
 
     if response.status_code == 200:
         data_json = response.json()
         # if the restaurant parameter is empty or None we will return all data
         # of restaurants
         if restaurant is None:
-            return {'data': data_json}
+            return {'Data': data_json}
 
         data_restaurant = []
         for item in data_json:
