@@ -1,6 +1,8 @@
 import requests
 import json
 
+# extracting data e saving to JSON files to simulate a database
+
 url = 'https://guilhermeonrails.github.io/api-restaurantes/restaurantes.json'
 response = requests.get(url)
 
