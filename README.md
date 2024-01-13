@@ -35,6 +35,10 @@ Explore a variety of projects that cover different domains within Python develop
    - Description: This Python program is an extension of `Restaurant Rating System` where were implemented new functions to create items to restaurant menu and apply discount to the items. We also have a small FastAPI implementation to return the menu of restaurants reading JSON files.
    - Directory: `./FastAPI - Restaurant Menu System`
 
+6. **Flask - GameLib:**
+   - Description: This Python program implements a Game Library that can return a list of game, add new games, sign in to the system and restricted access. This API is using Flask package.
+   - Directory: `./Flask - GameLib`
+
 
 Feel free to browse through the projects and choose the ones that align with your interests.
 
