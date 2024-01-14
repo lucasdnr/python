@@ -32,7 +32,7 @@ def new():
     Add new game
     '''
 
-    return render_template('new-game.html', title='Games')
+    return render_template('new.html', title='Games')
 
 
 app.run()
