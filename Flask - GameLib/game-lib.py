@@ -14,12 +14,25 @@ def hello():
     return '<h1>Hello World!</h1>'
 
 
-@app.route('/init')
-def init():
+@app.route('/list')
+def list():
     '''
+    Return a List of Games
     '''
-    list_games = ['Tetris', 'God of War', 'Valorant']
+    game_a = Game('Tetris', 'Puzzle', 'Atari')
+    game_b = Game('God of War', 'Rack n Slash', 'PS')
+    game_c = Game('Valorant', 'Shooter', 'PC')
+    list_games = [game_a, game_b, game_c]
     return render_template('list.html', title='Games', games=list_games)
+
+
+@app.route('/new')
+def new():
+    '''
+    Add new game
+    '''
+
+    return render_template('new-game.html', title='Games')
 
 
 app.run()
