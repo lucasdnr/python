@@ -1,9 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from models.game import Game
 
 app = Flask(__name__)
-
-# routes
 
 
 def populate_list():
@@ -11,6 +9,11 @@ def populate_list():
     game_b = Game('God of War', 'Rack n Slash', 'PS')
     game_c = Game('Valorant', 'Shooter', 'PC')
     return [game_a, game_b, game_c]
+
+
+list_games = populate_list()
+# routes
+
 
 @app.route('/hello')
 def hello():
@@ -25,7 +28,6 @@ def index():
     '''
     Return a List of Games
     '''
-    list_games = populate_list()
     return render_template('list.html', title='Games', games=list_games)
 
 
@@ -46,13 +48,10 @@ def create():
     name = request.form['name']
     category = request.form['category']
     console = request.form['console']
-
-    list_games = populate_list()
-
     game = Game(name, category, console)
     list_games.append(game)
 
-    return render_template('list.html', title='Games', games=list_games)
+    return redirect('/')
 
 
 app.run(debug=True)
