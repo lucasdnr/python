@@ -39,6 +39,11 @@ def new():
     return render_template('new.html', title='Games')
 
 
+@app.route('/signin')
+def signin():
+    return render_template('login.html')
+
+
 @app.route('/create', methods=['POST'])
 def create():
     '''
@@ -52,6 +57,14 @@ def create():
     list_games.append(game)
 
     return redirect('/')
+
+
+@app.route('/auth', methods=['POST'])
+def auth():
+    if 'alohomora' == request.form['password']:
+        return redirect('/')
+    else:
+        return redirect('/signin')
 
 
 app.run(debug=True)
