@@ -4,6 +4,7 @@ from models.game import Game
 app = Flask(__name__)
 app.secret_key = "lucasdnr"
 
+
 def populate_list():
     game_a = Game('Tetris', 'Puzzle', 'Atari')
     game_b = Game('God of War', 'Rack n Slash', 'PS')
@@ -45,6 +46,16 @@ def signin():
     Render the login/sign in page
     '''
     return render_template('login.html')
+
+
+@app.route('/signout')
+def signout():
+    '''
+    Signout of user
+    '''
+    session['user_logged'] = None
+    flash('Bye bye!', 'success')
+    return redirect('/signin')
 
 
 @app.route('/create', methods=['POST'])
