@@ -37,6 +37,9 @@ def new():
     '''
     Render the new game page
     '''
+    if 'user_logged' not in session or session['user_logged'] == None:
+        return redirect('/signin?page=new')
+
     return render_template('new.html', title='Games')
 
 
@@ -45,7 +48,8 @@ def signin():
     '''
     Render the login/sign in page
     '''
-    return render_template('login.html')
+    next_page = request.args.get('page')
+    return render_template('login.html', page=next_page)
 
 
 @app.route('/signout')
@@ -78,10 +82,11 @@ def auth():
     '''
     Authentication route
     '''
-    if 'alohomora' == request.form['password']:
+    if '123456' == request.form['password']:
         session['user_logged'] = request.form['user']
+        next_page = request.form['page']
         flash(f'{session['user_logged']} Login successful', 'success')
-        return redirect('/')
+        return redirect('/{}'.format(next_page))
     else:
         flash('User or password is incorrect!', 'danger')
         return redirect('/signin')
