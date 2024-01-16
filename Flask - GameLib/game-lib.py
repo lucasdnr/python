@@ -1,8 +1,8 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session, flash
 from models.game import Game
 
 app = Flask(__name__)
-
+app.secret_key = "lucasdnr"
 
 def populate_list():
     game_a = Game('Tetris', 'Puzzle', 'Atari')
@@ -68,8 +68,11 @@ def auth():
     Authentication route
     '''
     if 'alohomora' == request.form['password']:
+        session['user_logged'] = request.form['user']
+        flash(f'{session['user_logged']} Login successful', 'success')
         return redirect('/')
     else:
+        flash('User or password is incorrect!', 'danger')
         return redirect('/signin')
 
 
