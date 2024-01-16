@@ -82,6 +82,7 @@ def auth():
     '''
     Authentication route
     '''
+    # This authentication is only symbolic for our example to have a login screen
     if '123456' == request.form['password']:
         session['user_logged'] = request.form['user']
         next_page = request.form['page']
