@@ -41,6 +41,9 @@ def new():
 
 @app.route('/signin')
 def signin():
+    '''
+    Render the login/sign in page
+    '''
     return render_template('login.html')
 
 
@@ -61,6 +64,9 @@ def create():
 
 @app.route('/auth', methods=['POST'])
 def auth():
+    '''
+    Authentication route
+    '''
     if 'alohomora' == request.form['password']:
         return redirect('/')
     else:
