@@ -29,6 +29,9 @@ def index():
     '''
     Return a List of Games
     '''
+    if 'user_logged' not in session or session['user_logged'] == None:
+        return redirect(url_for('signin', page=url_for('index')))
+
     return render_template('list.html', title='Games', games=list_games)
 
 
