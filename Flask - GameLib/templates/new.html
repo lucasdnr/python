@@ -3,7 +3,7 @@
 
 {% extends "base.html" %}
 {% block content %}
-        <form method="post" action="/create">
+        <form method="post" action="{{ url_for('create') }}">
             <fieldset>
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -19,7 +19,7 @@
                 </div>
                 <div class="mt-3">
                     <button type="submit" class="btn btn-primary btn-salvar">Save</button>
-                    <a class="btn btn-outline-secondary" href="/" role="button">Cancel</a>
+                    <a class="btn btn-outline-secondary" href="{{ url_for('index') }}" role="button">Cancel</a>
                     </div>
             </fieldset>
         </form>

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, flash
+from flask import Flask, render_template, request, redirect, session, flash, url_for
 from models.game import Game
 
 app = Flask(__name__)
@@ -38,7 +38,7 @@ def new():
     Render the new game page
     '''
     if 'user_logged' not in session or session['user_logged'] == None:
-        return redirect('/signin?page=new')
+        return redirect(url_for('signin', page=url_for('new')))
 
     return render_template('new.html', title='Games')
 
@@ -59,7 +59,7 @@ def signout():
     '''
     session['user_logged'] = None
     flash('Bye bye!', 'success')
-    return redirect('/signin')
+    return redirect(url_for('signin'))
 
 
 @app.route('/create', methods=['POST'])
@@ -74,7 +74,7 @@ def create():
     game = Game(name, category, console)
     list_games.append(game)
 
-    return redirect('/')
+    return redirect(url_for('index'))
 
 
 @app.route('/auth', methods=['POST'])
@@ -86,10 +86,13 @@ def auth():
         session['user_logged'] = request.form['user']
         next_page = request.form['page']
         flash(f'{session['user_logged']} Login successful', 'success')
-        return redirect('/{}'.format(next_page))
+        if next_page == 'None':
+            return redirect(url_for('index'))
+        else:
+            return redirect(next_page)
     else:
         flash('User or password is incorrect!', 'danger')
-        return redirect('/signin')
+        return redirect(url_for('signin'))
 
 
 app.run(debug=True)
