@@ -29,6 +29,7 @@ def index():
     '''
     Return a List of Games
     '''
+    # we can create a middleware to implement this validation
     if 'user_logged' not in session or session['user_logged'] == None:
         return redirect(url_for('signin', page=url_for('index')))
 
@@ -40,6 +41,7 @@ def new():
     '''
     Render the new game page
     '''
+    # we can create a middleware to implement this validation
     if 'user_logged' not in session or session['user_logged'] == None:
         return redirect(url_for('signin', page=url_for('new')))
 
