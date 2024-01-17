@@ -1,8 +1,21 @@
 from flask import Flask, render_template, request, redirect, session, flash, url_for
 from models.game import Game
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.secret_key = "lucasdnr"
+
+app.config['SQLALCHEMY_DATABASE_URI'] = \
+    '{driver}://{user}:{password}@{server}/{database}'.format(
+        driver='mysql+mysqlconnector',
+        user='root',
+        password='',
+        server='localhost',
+        database='gamelib'
+)
+
+
+db = SQLAlchemy(app)
 
 
 def populate_list():
