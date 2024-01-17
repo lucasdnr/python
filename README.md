@@ -36,7 +36,7 @@ Explore a variety of projects that cover different domains within Python develop
    - Directory: `./FastAPI - Restaurant Menu System`
 
 6. **Flask - GameLib:**
-   - Description: This Python program implements a Game Library that can return a list of game, add new games, sign in to the system and restricted access. This API is using Flask package.
+   - Description: This Python program implements a Game Library that can return a list of game, add new games, sign in to the system and restricted access. This API is using Flask package, MySQL as database, SQLAlchemy and FlaskWTF.
    - Directory: `./Flask - GameLib`
 
 
